@@ -9,4 +9,13 @@ import Foundation
 enum MenuSection: String, CaseIterable {
     case ongoing = "Ongoing"
     case done = "Done"
+
+    var title: String {
+        switch self {
+        case .ongoing:
+            return "Ongoing"
+        case .done:
+            return "Done"
+        }
+    }
 }

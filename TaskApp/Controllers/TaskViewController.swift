@@ -11,12 +11,13 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var segmmentedControl: UISegmentedControl!
     @IBOutlet weak var ongoingContainerView: UIView!
     @IBOutlet weak var doneContainerView: UIView!
+    private var selectedSection: MenuSection = .ongoing
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupSegmentedControl()
-        ongoingContainerView.isHidden = false
-        doneContainerView.isHidden = true
+        showContainerView()
+
     }
 
     private func setupSegmentedControl() {
@@ -27,6 +28,28 @@ class TaskViewController: UIViewController {
         }
 
         segmmentedControl.selectedSegmentIndex = 0
+    }
+
+    private func showContainerView() {
+        switch selectedSection {
+        case .ongoing:
+            ongoingContainerView.isHidden = false
+            doneContainerView.isHidden = true
+        case .done:
+            ongoingContainerView.isHidden = true
+            doneContainerView.isHidden = false
+        }
+    }
+
+    @IBAction func segmentedControllerDidTapped(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            selectedSection = .ongoing
+        default:
+            selectedSection = .done
+        }
+
+        showContainerView()
     }
 
 }

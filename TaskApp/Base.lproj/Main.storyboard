@@ -60,6 +60,9 @@
                                 <segment title="First"/>
                                 <segment title="Second"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentedControllerDidTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qrj-5M-VVk"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
