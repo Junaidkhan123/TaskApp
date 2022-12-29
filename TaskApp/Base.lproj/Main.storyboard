@@ -88,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="-112.21374045801527" y="3.5211267605633805"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Done Table View Controller-->
         <scene sceneID="iff-Iw-gX5">
             <objects>
-                <tableViewController id="JS6-fa-TZu" sceneMemberID="viewController">
+                <tableViewController id="JS6-fa-TZu" customClass="DoneTableViewController" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="mAh-aT-ABh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="601"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="1859" y="788"/>
         </scene>
-        <!--Table View Controller-->
+        <!--On Going Table View Controller-->
         <scene sceneID="ajQ-Gn-yd7">
             <objects>
-                <tableViewController id="nqj-pZ-isV" sceneMemberID="viewController">
+                <tableViewController id="nqj-pZ-isV" customClass="OnGoingTableViewController" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="00w-79-9Sk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="601"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,7 +142,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6w-Ys-KmX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-163" y="777"/>
+            <point key="canvasLocation" x="-250" y="852"/>
         </scene>
     </scenes>
     <resources>
