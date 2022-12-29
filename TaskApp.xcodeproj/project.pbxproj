@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		391AC1B7295D7FBF00DBFA34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391AC1B6295D7FBF00DBFA34 /* AppDelegate.swift */; };
 		391AC1B9295D7FBF00DBFA34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391AC1B8295D7FBF00DBFA34 /* SceneDelegate.swift */; };
-		391AC1BB295D7FBF00DBFA34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391AC1BA295D7FBF00DBFA34 /* ViewController.swift */; };
+		391AC1BB295D7FBF00DBFA34 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391AC1BA295D7FBF00DBFA34 /* TaskViewController.swift */; };
 		391AC1BE295D7FBF00DBFA34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 391AC1BC295D7FBF00DBFA34 /* Main.storyboard */; };
 		391AC1C0295D7FC000DBFA34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 391AC1BF295D7FC000DBFA34 /* Assets.xcassets */; };
 		391AC1C3295D7FC000DBFA34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 391AC1C1295D7FC000DBFA34 /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		391AC1B3295D7FBF00DBFA34 /* TaskApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		391AC1B6295D7FBF00DBFA34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		391AC1B8295D7FBF00DBFA34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		391AC1BA295D7FBF00DBFA34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		391AC1BA295D7FBF00DBFA34 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		391AC1BD295D7FBF00DBFA34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		391AC1BF295D7FC000DBFA34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		391AC1C2295D7FC000DBFA34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			children = (
 				391AC1B6295D7FBF00DBFA34 /* AppDelegate.swift */,
 				391AC1B8295D7FBF00DBFA34 /* SceneDelegate.swift */,
-				391AC1BA295D7FBF00DBFA34 /* ViewController.swift */,
+				391AC1BA295D7FBF00DBFA34 /* TaskViewController.swift */,
 				391AC1BC295D7FBF00DBFA34 /* Main.storyboard */,
 				391AC1BF295D7FC000DBFA34 /* Assets.xcassets */,
 				391AC1C1295D7FC000DBFA34 /* LaunchScreen.storyboard */,
@@ -88,7 +88,6 @@
 				79810FEC441FDFE17C07D3EB /* Pods-TaskApp.debug.xcconfig */,
 				7504D085098A80F74EEEFD7C /* Pods-TaskApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,7 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				391AC1BB295D7FBF00DBFA34 /* ViewController.swift in Sources */,
+				391AC1BB295D7FBF00DBFA34 /* TaskViewController.swift in Sources */,
 				391AC1B7295D7FBF00DBFA34 /* AppDelegate.swift in Sources */,
 				391AC1B9295D7FBF00DBFA34 /* SceneDelegate.swift in Sources */,
 			);
