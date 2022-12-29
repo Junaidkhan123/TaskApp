@@ -35,13 +35,34 @@
                                     <segue destination="JS6-fa-TZu" kind="embed" id="sdV-dK-M8v"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMQ-eR-IaN">
+                                <rect key="frame" x="164.66666666666666" y="718" width="64" height="64"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="UJd-o6-vsM"/>
+                                    <constraint firstAttribute="width" constant="64" id="WLx-zV-FZh"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="32"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="plusButtonDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z9z-RH-fnW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="iMQ-eR-IaN" firstAttribute="firstBaseline" secondItem="Bnt-Qq-DVp" secondAttribute="firstBaseline" id="3YW-gK-3ji"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rhj-af-H2c" secondAttribute="trailing" id="4bZ-3R-kG5"/>
                             <constraint firstItem="HRW-zK-r2b" firstAttribute="bottom" secondItem="Rhj-af-H2c" secondAttribute="bottom" id="JgL-jI-rsz"/>
                             <constraint firstItem="HRW-zK-r2b" firstAttribute="leading" secondItem="Rhj-af-H2c" secondAttribute="leading" id="Kkt-Gj-dFA"/>
+                            <constraint firstItem="iMQ-eR-IaN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lfn-5K-koq"/>
                             <constraint firstItem="HRW-zK-r2b" firstAttribute="trailing" secondItem="Rhj-af-H2c" secondAttribute="trailing" id="Qwo-8H-3rb"/>
                             <constraint firstItem="Bnt-Qq-DVp" firstAttribute="top" secondItem="Rhj-af-H2c" secondAttribute="bottom" id="WE0-7Q-Pg4"/>
                             <constraint firstItem="Bnt-Qq-DVp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WJY-bM-C0p"/>
@@ -151,11 +172,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
