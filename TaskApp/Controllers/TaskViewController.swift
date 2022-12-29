@@ -53,7 +53,7 @@ class TaskViewController: UIViewController {
     }
 
     @IBAction func plusButtonDidTapped(_ sender: UIButton) {
-
+        performSegue(withIdentifier: "ShowAddNewTask", sender: nil)
     }
 
 }
