@@ -9,10 +9,14 @@ import UIKit
 
 class TaskViewController: UIViewController {
     @IBOutlet weak var segmmentedControl: UISegmentedControl!
+    @IBOutlet weak var ongoingContainerView: UIView!
+    @IBOutlet weak var doneContainerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupSegmentedControl()
+        ongoingContainerView.isHidden = false
+        doneContainerView.isHidden = true
     }
 
     private func setupSegmentedControl() {

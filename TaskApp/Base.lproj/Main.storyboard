@@ -63,6 +63,8 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneContainerView" destination="Rhj-af-H2c" id="HaY-QK-wAE"/>
+                        <outlet property="ongoingContainerView" destination="HRW-zK-r2b" id="EIS-Ya-mF1"/>
                         <outlet property="segmmentedControl" destination="aFt-1l-vwp" id="hdj-3g-xbM"/>
                     </connections>
                 </viewController>
