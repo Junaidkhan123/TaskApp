@@ -6,21 +6,26 @@
 //
 
 import UIKit
-
+import Combine
 class NewTaskViewController: UIViewController {
 
-     // MARK: - IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var saveTask: UIButton!
     @IBOutlet weak var bottomContainerView: UIView!
     @IBOutlet weak var bottomContainerViewBottomConstraint: NSLayoutConstraint!
-     // MARK: - life cycle
+
+     // MARK: - Properties
+    private var subscribers = Set<AnyCancellable>()
+    private var taskString: String?
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(white: 0.3, alpha: 0.4)
         bottomContainerViewBottomConstraint.constant = -bottomContainerView.frame.height
         addTapGesture()
         ObserveKeyBoard()
+        observeNewTaskTextField()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -28,12 +33,12 @@ class NewTaskViewController: UIViewController {
         taskTextField.becomeFirstResponder()
     }
 
-     // MARK: - IBAction
+    // MARK: - IBAction
     @IBAction func saveButtonDidTapped(){
 
     }
 
-     // MARK: - Tap Gesture
+    // MARK: - Tap Gesture
     private func addTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleKeyBoard))
         view.addGestureRecognizer(tapGesture)
@@ -43,7 +48,7 @@ class NewTaskViewController: UIViewController {
         self.dismiss(animated: true)
     }
 
-     // MARK: - Keyboard height
+    // MARK: - Keyboard height
 
     private func ObserveKeyBoard() {
         NotificationCenter.default.addObserver(self,
@@ -58,7 +63,7 @@ class NewTaskViewController: UIViewController {
 
     @objc func keyboardWillShow(_ notification: Notification) {
         let keyboardHeight = getKeyboardHeight(notification)
-        
+
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5) { [unowned self] in
             self.bottomContainerViewBottomConstraint.constant = keyboardHeight - (200 + 8)
             self.view.layoutIfNeeded()
@@ -73,5 +78,18 @@ class NewTaskViewController: UIViewController {
     private func getKeyboardHeight(_ notification: Notification) -> CGFloat {
         guard let height = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else { return 0.0}
         return height
+    }
+
+     // MARK: - Observe TextField
+
+    private func observeNewTaskTextField() {
+        NotificationCenter.default.publisher(for:UITextField.textDidChangeNotification)
+            .map { (notification) -> String? in
+                return (notification.object as? UITextField)?.text
+            }.sink { [unowned self] text in
+                self.taskString = text
+            }.store(in: &subscribers)
+
+        
     }
 }
