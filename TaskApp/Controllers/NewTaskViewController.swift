@@ -58,8 +58,11 @@ class NewTaskViewController: UIViewController {
 
     @objc func keyboardWillShow(_ notification: Notification) {
         let keyboardHeight = getKeyboardHeight(notification)
-        bottomContainerViewBottomConstraint.constant = keyboardHeight - (200 + 8)
-
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5) { [unowned self] in
+            self.bottomContainerViewBottomConstraint.constant = keyboardHeight - (200 + 8)
+            self.view.layoutIfNeeded()
+        }
     }
 
     @objc func keyboardWillHide(_ notification: Notification) {
