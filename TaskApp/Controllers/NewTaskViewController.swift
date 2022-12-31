@@ -8,51 +8,73 @@
 import UIKit
 import Combine
 class NewTaskViewController: UIViewController {
-
+    
     // MARK: - IBOutlet
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var saveTaskButton: UIButton!
     @IBOutlet weak var bottomContainerView: UIView!
     @IBOutlet weak var bottomContainerViewBottomConstraint: NSLayoutConstraint!
-
-     // MARK: - Properties
+    
+    // MARK: - Properties
     private var subscribers = Set<AnyCancellable>()
     @Published private  var  taskString: String?
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(white: 0.3, alpha: 0.4)
-        bottomContainerViewBottomConstraint.constant = -bottomContainerView.frame.height
+        setupView()
         addTapGesture()
         ObserveKeyBoard()
         observeNewTaskTextField()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         taskTextField.becomeFirstResponder()
     }
-
-    // MARK: - IBAction
-    @IBAction func saveButtonDidTapped(){
-        print("Save Button Tapped")
+    
+    // MARK: -  SetupView
+    fileprivate func setupView() {
+        self.view.backgroundColor = UIColor(white: 0.3, alpha: 0.4)
+        bottomContainerViewBottomConstraint.constant = -bottomContainerView.frame.height
     }
-
-    @IBAction func calendarButtonDidTapped(){
-        print("calendarButton did tapped")
-    }
-
+    
     // MARK: - Tap Gesture
     private func addTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleKeyBoard))
         view.addGestureRecognizer(tapGesture)
     }
-
+    
     @objc func handleKeyBoard() {
         self.dismiss(animated: true)
     }
+    
+    // MARK: - Observe TextField
+    
+    private func observeNewTaskTextField() {
+        NotificationCenter.default.publisher(for:UITextField.textDidChangeNotification)
+            .map { (notification) -> String? in
+                return (notification.object as? UITextField)?.text
+            }.sink { [unowned self] text in
+                self.taskString = text
+            }.store(in: &subscribers)
+        
+        $taskString.sink { [unowned self] text in
+            self.saveTaskButton.isEnabled = text?.isEmpty == false
+        }.store(in: &subscribers)
+    }
+    
+    // MARK: - IBAction
+    @IBAction func saveButtonDidTapped(){
+        print("Save Button Tapped")
+    }
+    
+    @IBAction func calendarButtonDidTapped(){
+        print("calendarButton did tapped")
+    }
+}
 
-    // MARK: - Keyboard height
+ // MARK: - Keyboard hide And show
+extension NewTaskViewController {
 
     private func ObserveKeyBoard() {
         NotificationCenter.default.addObserver(self,
@@ -64,7 +86,6 @@ class NewTaskViewController: UIViewController {
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
     }
-
     @objc func keyboardWillShow(_ notification: Notification) {
         let keyboardHeight = getKeyboardHeight(notification)
 
@@ -84,18 +105,4 @@ class NewTaskViewController: UIViewController {
         return height
     }
 
-     // MARK: - Observe TextField
-
-    private func observeNewTaskTextField() {
-        NotificationCenter.default.publisher(for:UITextField.textDidChangeNotification)
-            .map { (notification) -> String? in
-                return (notification.object as? UITextField)?.text
-            }.sink { [unowned self] text in
-                self.taskString = text
-            }.store(in: &subscribers)
-
-        $taskString.sink { [unowned self] text in
-            self.saveTaskButton.isEnabled = text?.isEmpty == false
-        }.store(in: &subscribers)
-    }
 }
