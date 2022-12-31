@@ -74,7 +74,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tasks" id="xwZ-Hf-hXM">
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="aFt-1l-vwp">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="aFt-1l-vwp">
                             <rect key="frame" x="131" y="6" width="131" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -90,23 +90,84 @@
                         <outlet property="doneContainerView" destination="Rhj-af-H2c" id="HaY-QK-wAE"/>
                         <outlet property="ongoingContainerView" destination="HRW-zK-r2b" id="EIS-Ya-mF1"/>
                         <outlet property="segmmentedControl" destination="aFt-1l-vwp" id="hdj-3g-xbM"/>
-                        <segue destination="QES-CJ-wRp" kind="presentation" identifier="ShowAddNewTask" id="wtI-xS-0Ug"/>
+                        <segue destination="QES-CJ-wRp" kind="presentation" identifier="ShowAddNewTask" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="wtI-xS-0Ug"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="814.50381679389307" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--New Task View Controller-->
         <scene sceneID="gtD-HC-GcX">
             <objects>
-                <viewController id="QES-CJ-wRp" sceneMemberID="viewController">
+                <viewController id="QES-CJ-wRp" customClass="NewTaskViewController" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nyJ-Dv-hW5">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aK5-ja-rik">
+                                <rect key="frame" x="0.0" y="524" width="393" height="328"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QFh-mM-ez2">
+                                        <rect key="frame" x="16" y="8" width="361" height="312"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter New Task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x94-RH-iuO">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="hxT-IU-hf4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k75-K5-tQ4" userLabel="ButtonStack">
+                                                <rect key="frame" x="0.0" y="56" width="361" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chy-Dc-peV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="qdQ-SU-HVQ"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Save">
+                                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="saveButtonDidTapped" destination="QES-CJ-wRp" eventType="touchUpInside" id="BCz-Ja-EYq"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPm-au-Bs4">
+                                                <rect key="frame" x="0.0" y="112" width="361" height="200"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="PJz-WB-LoS"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="QFh-mM-ez2" secondAttribute="bottom" constant="8" id="JVC-Vg-7xy"/>
+                                    <constraint firstAttribute="trailing" secondItem="QFh-mM-ez2" secondAttribute="trailing" constant="16" id="aGc-Ed-a7q"/>
+                                    <constraint firstItem="QFh-mM-ez2" firstAttribute="top" secondItem="aK5-ja-rik" secondAttribute="top" constant="8" id="fVd-Yq-JZy"/>
+                                    <constraint firstItem="QFh-mM-ez2" firstAttribute="leading" secondItem="aK5-ja-rik" secondAttribute="leading" constant="16" id="z6B-kq-wpK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="peH-vA-OUm"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="aK5-ja-rik" secondAttribute="bottom" id="U9w-Hu-KJY"/>
+                            <constraint firstItem="aK5-ja-rik" firstAttribute="leading" secondItem="peH-vA-OUm" secondAttribute="leading" id="YnG-Ys-lg1"/>
+                            <constraint firstItem="aK5-ja-rik" firstAttribute="trailing" secondItem="peH-vA-OUm" secondAttribute="trailing" id="n6E-0Q-3ky"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="saveTask" destination="Chy-Dc-peV" id="Quq-bb-piU"/>
+                        <outlet property="taskTextField" destination="x94-RH-iuO" id="ce3-UJ-B44"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUn-kK-jBA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
