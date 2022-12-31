@@ -35,7 +35,11 @@ class NewTaskViewController: UIViewController {
 
     // MARK: - IBAction
     @IBAction func saveButtonDidTapped(){
+        print("Save Button Tapped")
+    }
 
+    @IBAction func calendarButtonDidTapped(){
+        print("calendarButton did tapped")
     }
 
     // MARK: - Tap Gesture
