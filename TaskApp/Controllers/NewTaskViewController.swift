@@ -11,7 +11,7 @@ class NewTaskViewController: UIViewController {
 
     // MARK: - IBOutlet
     @IBOutlet weak var taskTextField: UITextField!
-    @IBOutlet weak var saveTask: UIButton!
+    @IBOutlet weak var saveTaskButton: UIButton!
     @IBOutlet weak var bottomContainerView: UIView!
     @IBOutlet weak var bottomContainerViewBottomConstraint: NSLayoutConstraint!
 
@@ -91,7 +91,7 @@ class NewTaskViewController: UIViewController {
             }.store(in: &subscribers)
 
         $taskString.sink { [unowned self] text in
-            self.saveTask.isEnabled = text?.isEmpty == false
+            self.saveTaskButton.isEnabled = text?.isEmpty == false
         }.store(in: &subscribers)
     }
 }
