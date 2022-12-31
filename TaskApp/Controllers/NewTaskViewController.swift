@@ -12,7 +12,8 @@ class NewTaskViewController: UIViewController {
      // MARK: - IBOutlet
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var saveTask: UIButton!
-
+    @IBOutlet weak var bottomContainerView: UIView!
+    @IBOutlet weak var bottomContainerViewBottomConstraint: NSLayoutConstraint!
      // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()

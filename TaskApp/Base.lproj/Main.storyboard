@@ -165,6 +165,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomContainerView" destination="aK5-ja-rik" id="qui-IU-dkW"/>
+                        <outlet property="bottomContainerViewBottomConstraint" destination="U9w-Hu-KJY" id="ves-TB-Bws"/>
                         <outlet property="saveTask" destination="Chy-Dc-peV" id="Quq-bb-piU"/>
                         <outlet property="taskTextField" destination="x94-RH-iuO" id="ce3-UJ-B44"/>
                     </connections>
