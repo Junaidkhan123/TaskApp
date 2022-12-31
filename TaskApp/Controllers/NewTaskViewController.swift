@@ -90,6 +90,8 @@ class NewTaskViewController: UIViewController {
                 self.taskString = text
             }.store(in: &subscribers)
 
-
+        $taskString.sink { [unowned self] text in
+            self.saveTask.isEnabled = text?.isEmpty == false
+        }.store(in: &subscribers)
     }
 }
