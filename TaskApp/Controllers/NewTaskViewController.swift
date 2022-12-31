@@ -17,7 +17,7 @@ class NewTaskViewController: UIViewController {
 
      // MARK: - Properties
     private var subscribers = Set<AnyCancellable>()
-    private var taskString: String?
+    @Published private  var  taskString: String?
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +90,6 @@ class NewTaskViewController: UIViewController {
                 self.taskString = text
             }.store(in: &subscribers)
 
-        
+
     }
 }
