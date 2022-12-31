@@ -18,6 +18,7 @@ class NewTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(white: 0.3, alpha: 0.4)
+        bottomContainerViewBottomConstraint.constant = -bottomContainerView.frame.height
         addTapGesture()
         ObserveKeyBoard()
     }
@@ -49,11 +50,21 @@ class NewTaskViewController: UIViewController {
                                                selector: #selector(keyboardWillShow),
                                                name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
 
     @objc func keyboardWillShow(_ notification: Notification) {
         let keyboardHeight = getKeyboardHeight(notification)
-        print(keyboardHeight)
+        bottomContainerViewBottomConstraint.constant = keyboardHeight - (200 + 8)
+
+    }
+
+    @objc func keyboardWillHide(_ notification: Notification) {
+        bottomContainerViewBottomConstraint.constant = -bottomContainerView.frame.height
+
     }
 
     private func getKeyboardHeight(_ notification: Notification) -> CGFloat {
