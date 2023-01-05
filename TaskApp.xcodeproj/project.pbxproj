@@ -17,6 +17,7 @@
 		3977C95C295D90A100FE7800 /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3977C95B295D90A100FE7800 /* MenuSection.swift */; };
 		3977C95F295D948600FE7800 /* OnGoingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3977C95E295D948600FE7800 /* OnGoingTableViewController.swift */; };
 		3977C961295D949300FE7800 /* DoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3977C960295D949300FE7800 /* DoneTableViewController.swift */; };
+		39B9987C29674AF30082DDD6 /* NewTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B9987B29674AF30082DDD6 /* NewTaskViewModel.swift */; };
 		B10D41047CF2CC99551C21BC /* Pods_TaskApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3575E7C8E33152A29B1541D /* Pods_TaskApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		3977C95B295D90A100FE7800 /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		3977C95E295D948600FE7800 /* OnGoingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnGoingTableViewController.swift; sourceTree = "<group>"; };
 		3977C960295D949300FE7800 /* DoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTableViewController.swift; sourceTree = "<group>"; };
+		39B9987B29674AF30082DDD6 /* NewTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewModel.swift; sourceTree = "<group>"; };
 		7504D085098A80F74EEEFD7C /* Pods-TaskApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskApp.release.xcconfig"; path = "Target Support Files/Pods-TaskApp/Pods-TaskApp.release.xcconfig"; sourceTree = "<group>"; };
 		79810FEC441FDFE17C07D3EB /* Pods-TaskApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskApp.debug.xcconfig"; path = "Target Support Files/Pods-TaskApp/Pods-TaskApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B3575E7C8E33152A29B1541D /* Pods_TaskApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,12 +104,21 @@
 		3977C95D295D946200FE7800 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				39B9987A29674AD60082DDD6 /* ViewModel */,
 				391AC1BA295D7FBF00DBFA34 /* TaskViewController.swift */,
 				3977C95E295D948600FE7800 /* OnGoingTableViewController.swift */,
 				3977C960295D949300FE7800 /* DoneTableViewController.swift */,
 				391A946E2960919600802749 /* NewTaskViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		39B9987A29674AD60082DDD6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				39B9987B29674AF30082DDD6 /* NewTaskViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		3D2F7C16E9B9FD4A56CD0895 /* Pods */ = {
@@ -236,6 +247,7 @@
 			files = (
 				391AC1BB295D7FBF00DBFA34 /* TaskViewController.swift in Sources */,
 				391A946F2960919600802749 /* NewTaskViewController.swift in Sources */,
+				39B9987C29674AF30082DDD6 /* NewTaskViewModel.swift in Sources */,
 				3977C95F295D948600FE7800 /* OnGoingTableViewController.swift in Sources */,
 				391AC1B7295D7FBF00DBFA34 /* AppDelegate.swift in Sources */,
 				3977C95C295D90A100FE7800 /* MenuSection.swift in Sources */,
