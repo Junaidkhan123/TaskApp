@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import CombineCocoa
 class NewTaskViewController: UIViewController {
     
     // MARK: - IBOutlet
@@ -18,13 +19,17 @@ class NewTaskViewController: UIViewController {
     // MARK: - Properties
     private var subscribers = Set<AnyCancellable>()
     @Published private  var  taskString: String?
+
+     // MARK: - ViewModel
+    let viewModel = NewTaskViewModel()
+
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
         setupView()
         addTapGesture()
         ObserveKeyBoard()
-        observeNewTaskTextField()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,22 +52,7 @@ class NewTaskViewController: UIViewController {
     @objc func handleKeyBoard() {
         self.dismiss(animated: true)
     }
-    
-    // MARK: - Observe TextField
-    
-    private func observeNewTaskTextField() {
-        NotificationCenter.default.publisher(for:UITextField.textDidChangeNotification)
-            .map { (notification) -> String? in
-                return (notification.object as? UITextField)?.text
-            }.sink { [unowned self] text in
-                self.taskString = text
-            }.store(in: &subscribers)
-        
-        $taskString.sink { [unowned self] text in
-            self.saveTaskButton.isEnabled = text?.isEmpty == false
-        }.store(in: &subscribers)
-    }
-    
+
     // MARK: - IBAction
     @IBAction func saveButtonDidTapped(){
         print("Save Button Tapped")
@@ -70,6 +60,16 @@ class NewTaskViewController: UIViewController {
     
     @IBAction func calendarButtonDidTapped(){
         print("calendarButton did tapped")
+    }
+
+    func bind() {
+
+        let input = NewTaskViewModel.Input(textFieldPublihser: taskTextField.textPublisher.eraseToAnyPublisher())
+        let output = viewModel.transfor(input: input)
+
+        output.validator.sink {[unowned self] isTrue in
+            self.saveTaskButton.isEnabled = isTrue
+        }.store(in: &subscribers)
     }
 }
 

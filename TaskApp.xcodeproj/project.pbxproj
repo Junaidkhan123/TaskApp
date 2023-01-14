@@ -17,6 +17,7 @@
 		3977C95C295D90A100FE7800 /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3977C95B295D90A100FE7800 /* MenuSection.swift */; };
 		3977C95F295D948600FE7800 /* OnGoingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3977C95E295D948600FE7800 /* OnGoingTableViewController.swift */; };
 		3977C961295D949300FE7800 /* DoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3977C960295D949300FE7800 /* DoneTableViewController.swift */; };
+		39B2E24C29730D0F004B434F /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 39B2E24B29730D0F004B434F /* CombineCocoa */; };
 		39B9987C29674AF30082DDD6 /* NewTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B9987B29674AF30082DDD6 /* NewTaskViewModel.swift */; };
 		B10D41047CF2CC99551C21BC /* Pods_TaskApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3575E7C8E33152A29B1541D /* Pods_TaskApp.framework */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39B2E24C29730D0F004B434F /* CombineCocoa in Frameworks */,
 				B10D41047CF2CC99551C21BC /* Pods_TaskApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +83,7 @@
 		391AC1B5295D7FBF00DBFA34 /* TaskApp */ = {
 			isa = PBXGroup;
 			children = (
+				39B2E24D29730E4A004B434F /* Extensions */,
 				3977C95D295D946200FE7800 /* Controllers */,
 				3977C95A295D908F00FE7800 /* Model */,
 				391AC1B6295D7FBF00DBFA34 /* AppDelegate.swift */,
@@ -111,6 +114,13 @@
 				391A946E2960919600802749 /* NewTaskViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		39B2E24D29730E4A004B434F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		39B9987A29674AD60082DDD6 /* ViewModel */ = {
@@ -148,6 +158,9 @@
 			dependencies = (
 			);
 			name = TaskApp;
+			packageProductDependencies = (
+				39B2E24B29730D0F004B434F /* CombineCocoa */,
+			);
 			productName = TaskApp;
 			productReference = 391AC1B3295D7FBF00DBFA34 /* TaskApp.app */;
 			productType = "com.apple.product-type.application";
@@ -176,6 +189,9 @@
 				Base,
 			);
 			mainGroup = 391AC1AA295D7FBF00DBFA34;
+			packageReferences = (
+				39B2E24A29730D0F004B434F /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+			);
 			productRefGroup = 391AC1B4295D7FBF00DBFA34 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -478,6 +494,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		39B2E24A29730D0F004B434F /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		39B2E24B29730D0F004B434F /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39B2E24A29730D0F004B434F /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 391AC1AB295D7FBF00DBFA34 /* Project object */;
 }
