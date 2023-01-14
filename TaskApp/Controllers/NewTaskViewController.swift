@@ -52,11 +52,6 @@ class NewTaskViewController: UIViewController {
     @objc func handleKeyBoard() {
         self.dismiss(animated: true)
     }
-
-    // MARK: - IBAction
-    @IBAction func saveButtonDidTapped(){
-        print("Save Button Tapped")
-    }
     
     @IBAction func calendarButtonDidTapped(){
         print("calendarButton did tapped")
@@ -64,7 +59,8 @@ class NewTaskViewController: UIViewController {
 
     func bind() {
 
-        let input = NewTaskViewModel.Input(textFieldPublihser: taskTextField.textPublisher.eraseToAnyPublisher())
+        let input = NewTaskViewModel.Input(textFieldPublihser: taskTextField.textPublisher.eraseToAnyPublisher(),
+                                           saveButtonTapPublisher: saveTaskButton.tapPublisher.eraseToAnyPublisher())
         let output = viewModel.transfor(input: input)
 
         output.validator.sink {[unowned self] isTrue in

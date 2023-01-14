@@ -18,6 +18,7 @@ class NewTaskViewModel {
 
     struct Input {
         let textFieldPublihser: AnyPublisher<String?, Never>
+        let saveButtonTapPublisher: AnyPublisher<Void, Never>
     }
 
     struct Output {
@@ -36,6 +37,11 @@ class NewTaskViewModel {
         let outPut = Output(validator:
                                 subject.eraseToAnyPublisher()
         )
+
+        input.saveButtonTapPublisher.sink { _ in
+            print("Tapped here ")
+        }.store(in: &canceallbel)
+
         return outPut
     }
 }
